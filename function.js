@@ -32,3 +32,27 @@ function order(arr) {
 
 console.log(order(newArr(secondArr)))
 
+let thirdarr = [1, 4, 6, 7, 2, 3, 9, 8, 5, 11, 10]
+
+const quickSort = (arr) => {
+  let minor = [];
+  let major = [];
+  let indexMid = Math.floor(arr.length/2)
+  let pivot = arr[indexMid]
+  console.log(pivot)
+
+  if (arr.length < 1) return []
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > pivot) {
+      major.push(arr[i])
+    } else if (arr[i] < pivot) {
+      minor.push(arr[i])
+    }
+    
+  }
+  let ordered = []
+  return ordered.concat(quickSort(minor), pivot, quickSort(major))
+}
+
+console.log(quickSort(thirdarr))
